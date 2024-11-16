@@ -73,6 +73,11 @@ def typed_prop_to_binary(prop_val, prop_type):
         # TODO This is not allowed in Cypher, consider how to handle it here rather than in-module.
         return struct.pack(format_str, 0)
 
+    if prop_val == "<<EMPTY>>" and prop_type in {Type.ID_STRING, Type.STRING}:
+        # Handle empty strings as valid string values
+        encoded_str = b"\x00"  # Explicitly encode as an empty string with a null terminator
+        return struct.pack(format_str + "%ds" % len(encoded_str), Type.STRING.value, encoded_str)
+
     if prop_type == Type.ID_INTEGER or prop_type == Type.LONG:
         try:
             numeric_prop = int(prop_val)
