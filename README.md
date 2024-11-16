@@ -17,13 +17,10 @@ A Redis server with the [RedisGraph](https://github.com/RedisLabsModules/RedisGr
 https://oss.redis.com/redisgraph/
 
 ## Installation
-The bulk loader can be installed using pip:
+This custom bulk loader can be installed directly from this repo using pip:
+
 ```
-pip install redisgraph-bulk-loader
-```
-Or
-```
-pip install git+https://github.com/RedisGraph/redisgraph-bulk-loader.git@master
+pip install git+https://github.com/arramos84/redisgraph-bulk-loader.git@master
 ```
 
 ## Usage
